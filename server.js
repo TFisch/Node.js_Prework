@@ -32,6 +32,13 @@ getAllMessages = (response) => {
   response.end();
 }
 
+addMessage = (newMessage, response) => {
+  response.writeHead(201, { 'Content-Type': 'text/plain' });
+  messages.push(newMessage);
+  response.write(JSON.stringify(newMessage));
+  response.end();
+}
+
 
 let messages = [
   { 'id': 1, 'user': 'brittany storoz', 'message': 'hi there!' },
